@@ -58,7 +58,6 @@ public abstract class Dier extends Organisme {
        setyLocatie(y);
    }
 
-    @Override
     public void stap() {
 
         

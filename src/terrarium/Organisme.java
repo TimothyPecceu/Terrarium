@@ -33,12 +33,8 @@ public abstract class Organisme {
     public void setyLocatie(int yLocatie) {
         this.yLocatie = yLocatie;
     }
-    
-    
-   
-   public void interactie(Organisme organisme){}
    public void carnivoorActie(Carnivoor carnivoor){}
    public void herbivoorActie(Herbivoor herbivoor){}
-   public void stap(){}
+
    
 }

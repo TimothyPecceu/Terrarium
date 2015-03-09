@@ -13,7 +13,7 @@ public class HerbivoorVrij implements Actie{
 
     @Override
     public void voerUit() {
-        Terrarium.getInstance().addOrganisme("herbivoor");
+        Terrarium.getInstance().addOrganisme();
     }
     
 }

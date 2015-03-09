@@ -15,7 +15,6 @@ public class Carnivoor extends Dier {
         super(xLocatie, yLocatie);
     }  
 
-    @Override
     public void interactie(Organisme organisme){
         organisme.carnivoorActie(this);
     }

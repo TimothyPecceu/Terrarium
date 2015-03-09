@@ -23,10 +23,10 @@ public class CarnivoorVecht implements Actie {
     public void voerUit() {
         if (carnivoorLinks.getLevensKracht() > carnivoorRechts.getLevensKracht()) {
             carnivoorLinks.verhoogLevensKracht(carnivoorRechts.getLevensKracht());
-            Terrarium.getInstance().removeOrganisme(carnivoorRechts.getxLocatie(),carnivoorRechts.getyLocatie());
+            Terrarium.getInstance().removeOrganisme(carnivoorRechts);
         } else if (carnivoorLinks.getLevensKracht() < carnivoorRechts.getLevensKracht()) {
             carnivoorRechts.verhoogLevensKracht(carnivoorLinks.getLevensKracht());
-            Terrarium.getInstance().removeOrganisme(carnivoorLinks.getxLocatie(),carnivoorLinks.getyLocatie());
+            Terrarium.getInstance().removeOrganisme(carnivoorLinks);
         }
     }
     

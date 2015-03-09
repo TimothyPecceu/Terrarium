@@ -23,7 +23,7 @@ public class CarnivoorEet implements Actie{
     @Override
     public void voerUit() {
         System.out.println("Carnivoor eet Herbivoor");
-        Terrarium.getInstance().removeOrganisme(herbivoor.getxLocatie(), herbivoor.getyLocatie());
+        Terrarium.getInstance().removeOrganisme(herbivoor);
         carnivoor.verhoogLevensKracht(herbivoor.getLevensKracht());
     }
 }

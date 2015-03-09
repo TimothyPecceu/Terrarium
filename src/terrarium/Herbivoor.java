@@ -27,7 +27,6 @@ public class Herbivoor extends Dier {
         herbivoor.actie();
     }
 
-    @Override
     public void interactie(Organisme organisme) {
         organisme.herbivoorActie(this);
     }

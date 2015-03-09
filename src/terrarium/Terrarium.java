@@ -5,6 +5,8 @@
  */
 package terrarium;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -14,14 +16,12 @@ import java.util.Random;
 public class Terrarium {
 
     private static Terrarium uniqueInstance;
-    private final Organisme[][] organismen;
-    private final OrganismeFactory factory;
-    private final Random random;
+    private final List<Organisme> organismen;
+
 
     private Terrarium() {
-        organismen = new Organisme[6][6];
-        factory = new OrganismeFactory();
-        random = new Random();
+        organismen = new ArrayList<>();
+
     }
 
     public static Terrarium getInstance() {
@@ -32,56 +32,19 @@ public class Terrarium {
         return uniqueInstance;
     }
 
-    public void addOrganisme(String soort) {
-
-        int x = random.nextInt(6);
-        int y = random.nextInt(6);
-
-        while (organismen[x][y] != null) {
-            x = random.nextInt(6);
-            y = random.nextInt(6);
-        }
-
-        organismen[x][y] = factory.createOrganisme(soort, x, y);
+    public void addOrganisme(Organisme organisme) {
+        organismen.add(organisme);
     }
 
-    public void removeOrganisme(int x, int y) {
-        organismen[x][y] = null;
+    public void removeOrganisme(Organisme organisme) {
+        organismen.remove(organisme);
     }
 
     public void nieuweDag() {
-        int aantal = random.nextInt(3);
-        for (int i = 0; i <= aantal; i++) {
-            addOrganisme("plant");
-        }
-        Organisme linkerOrganisme = null;
-
-        for (Organisme[] organismeArray : organismen) {
-            for (Organisme organisme : organismeArray) {
-                if (linkerOrganisme != null) {
-                    if (organisme != null) {
-                        linkerOrganisme.interactie(organisme);
-                    }else{
-                        linkerOrganisme.stap();
-                    }                    
-                }
-                linkerOrganisme = organisme;
-            }
-            linkerOrganisme = null;
-        }
 
     }
 
     public void printTerrarium() {
-        for (Organisme[] organismeArray : organismen) {
-            for (Organisme organisme : organismeArray) {
-                if (organisme != null) {
-                    System.out.print(" " + organisme + " ");
-                } else {
-                    System.out.print(" . ");
-                }
-            }
-            System.out.println();
-        }
+        
     }
 }
