@@ -5,20 +5,24 @@
  */
 package terrarium;
 
+import java.util.Random;
+
 /**
  *
  * @author hans
  */
 public class OrganismeFactory {
     
-    public Organisme createOrganisme(String organisme, int x, int y){
+    Random random = new Random();
+    
+    public Organisme createOrganisme(String organisme){
         switch(organisme){
             case "plant":
-                return new Plant(x,y);
+                return new Plant(random.nextInt(6),random.nextInt(6));
             case "herbivoor":
-                return new Herbivoor(x, y);
+                return new Herbivoor(random.nextInt(6),random.nextInt(6));
             case "carnivoor":
-                return new Carnivoor(x, y);
+                return new Carnivoor(random.nextInt(6),random.nextInt(6));
             default:
                 return null;
         }

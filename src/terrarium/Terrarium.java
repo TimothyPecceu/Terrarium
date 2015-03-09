@@ -7,7 +7,6 @@ package terrarium;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 /**
  *
@@ -41,7 +40,9 @@ public class Terrarium {
     }
 
     public void nieuweDag() {
-
+        for(Organisme organisme: organismen){
+            
+        }
     }
 
     public void printTerrarium() {

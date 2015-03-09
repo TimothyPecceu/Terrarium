@@ -26,6 +26,14 @@ public class Carnivoor extends Dier {
     }
 
     @Override
+    public void herbivoorActie(Herbivoor herbivoor) {
+        herbivoor.setActie(new HerbivoorCarnivoor());
+        herbivoor.actie();
+    }
+    
+    
+
+    @Override
     public String toString() {
         return "C";
     }

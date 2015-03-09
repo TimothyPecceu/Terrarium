@@ -12,14 +12,16 @@ package terrarium;
 public class HerbivoorEet implements Actie{
 
     Herbivoor herbivoor;
+    Plant plant;
 
-    public HerbivoorEet(Herbivoor herbivoor) {
+    public HerbivoorEet(Herbivoor herbivoor, Plant plant) {
         this.herbivoor = herbivoor;
+        this.plant=plant;
     }
     
     @Override
     public void voerUit() {
-        Terrarium.getInstance().removeOrganisme(herbivoor.getxLocatie(), herbivoor.getyLocatie()+1);
+        Terrarium.getInstance().removeOrganisme(plant);
         herbivoor.verhoogLevensKracht(1);
     }
     

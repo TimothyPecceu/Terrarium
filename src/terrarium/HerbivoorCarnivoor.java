@@ -9,12 +9,8 @@ package terrarium;
  *
  * @author hans
  */
-public class HerbivoorVrij implements Actie{
-
-    OrganismeFactory factory = new OrganismeFactory();
+public class HerbivoorCarnivoor implements Actie{
     @Override
     public void voerUit() {
-        Terrarium.getInstance().addOrganisme(factory.createOrganisme("herbivoor"));
     }
-    
 }

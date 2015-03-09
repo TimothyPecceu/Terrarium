@@ -17,7 +17,7 @@ public class Plant extends Organisme{
 
     @Override
     public void herbivoorActie(Herbivoor herbivoor) {
-        herbivoor.setActie(new HerbivoorEet(herbivoor));
+        herbivoor.setActie(new HerbivoorEet(herbivoor,this));
         herbivoor.actie();
     }
 
