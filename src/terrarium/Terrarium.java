@@ -5,8 +5,8 @@
  */
 package terrarium;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -15,11 +15,10 @@ import java.util.List;
 public class Terrarium {
 
     private static Terrarium uniqueInstance;
-    private final List<Organisme> organismen;
-
+    private final Map<Locatie, Organisme> organismen;
 
     private Terrarium() {
-        organismen = new ArrayList<>();
+        organismen = new HashMap<>();
 
     }
 
@@ -32,20 +31,20 @@ public class Terrarium {
     }
 
     public void addOrganisme(Organisme organisme) {
-        organismen.add(organisme);
+
+        organismen.putIfAbsent(organisme.getLocatie(), organisme);
+
     }
 
     public void removeOrganisme(Organisme organisme) {
-        organismen.remove(organisme);
+        
     }
 
     public void nieuweDag() {
-        for(Organisme organisme: organismen){
-            
-        }
+
     }
 
     public void printTerrarium() {
-        
+
     }
 }
