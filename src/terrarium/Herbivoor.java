@@ -11,8 +11,8 @@ package terrarium;
  */
 public class Herbivoor extends Dier {
 
-    public Herbivoor(int xLocatie, int yLocatie) {
-        super(xLocatie, yLocatie);
+    public Herbivoor(Locatie locatie) {
+        super(locatie);
     }
 
     @Override

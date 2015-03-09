@@ -24,11 +24,13 @@ public abstract class Dier extends Organisme {
     Richting[] alleRichtingen = Richting.values();
     
     private Actie actie;
-        
-    public Dier(int xLocatie, int yLocatie) {
-        super(xLocatie, yLocatie);
+
+    public Dier(Locatie locatie) {
+        super(locatie);
         levensKracht = 0;
     }
+        
+
 
     public void verhoogLevensKracht(int verhoging) {
         levensKracht += verhoging;
@@ -37,26 +39,6 @@ public abstract class Dier extends Organisme {
     public int getLevensKracht() {
         return levensKracht;
     }
-    
-    public void omhoog(){
-        int x = getxLocatie()-1;
-        setxLocatie(x);
-   }
-   
-   public void omlaag(){
-       int x = getxLocatie()+1;
-       setxLocatie(x);
-   }
-   
-   public void links(){
-       int y = getyLocatie()-1;
-       setyLocatie(y);
-   }
-   
-   public void rechts(){
-       int y = getyLocatie()+1;
-       setyLocatie(y);
-   }
 
     public void stap() {
 
@@ -65,16 +47,16 @@ public abstract class Dier extends Organisme {
         
         switch (richting) {
             case OMHOOG:
-                omhoog();
+                getLocatie().omhoog();
                 break;
             case OMLAAG:
-                omlaag();
+                getLocatie().omlaag();
                 break;
             case LINKS:
-                links();
+                getLocatie().links();
                 break;
             case RECHTS:
-                rechts();
+                getLocatie().rechts();
                 break;
             default:
                 break;

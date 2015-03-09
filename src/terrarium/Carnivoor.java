@@ -11,9 +11,9 @@ package terrarium;
  */
 public class Carnivoor extends Dier {
 
-    public Carnivoor(int xLocatie, int yLocatie) {
-        super(xLocatie, yLocatie);
-    }  
+    public Carnivoor(Locatie locatie) {
+        super(locatie);
+    } 
 
     public void interactie(Organisme organisme){
         organisme.carnivoorActie(this);

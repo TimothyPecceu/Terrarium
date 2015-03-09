@@ -10,31 +10,23 @@ package terrarium;
  * @author hans
  */
 public abstract class Organisme {
-    private int xLocatie;
-    private int yLocatie;
 
-    public Organisme(int xLocatie, int yLocatie) {
-        this.xLocatie = xLocatie;
-        this.yLocatie = yLocatie;
+    private Locatie locatie;
+
+    public Organisme(Locatie locatie) {
+        this.locatie = locatie;
     }
 
-    public int getxLocatie() {
-        return xLocatie;
+    public Locatie getLocatie() {
+        return locatie;
     }
 
-    public int getyLocatie() {
-        return yLocatie;
+    public void setLocatie(Locatie locatie) {
+        this.locatie = locatie;
     }
+        
+    public abstract void carnivoorActie(Carnivoor carnivoor);
 
-    public void setxLocatie(int xLocatie) {
-        this.xLocatie = xLocatie;
-    }
+    public abstract void herbivoorActie(Herbivoor herbivoor);
 
-    public void setyLocatie(int yLocatie) {
-        this.yLocatie = yLocatie;
-    }
-   public abstract void carnivoorActie(Carnivoor carnivoor);
-   public abstract void herbivoorActie(Herbivoor herbivoor);
-
-   
 }
