@@ -24,7 +24,6 @@ public class Main {
         terrarium.printTerrarium();
         terrarium.nieuweDag();
         terrarium.printTerrarium();
-        terrarium.nieuweDag();
     }
     
 }

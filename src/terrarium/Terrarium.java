@@ -31,22 +31,22 @@ public class Terrarium {
 
         int x = organisme.getXLocatie();
         int y = organisme.getYLocatie();
-        
-        if(organismen[x][y] == null){
+
+        if (organismen[x][y] == null) {
             organismen[x][y] = organisme;
         }
 
     }
 
     public void removeOrganisme(Organisme organisme) {
-       organismen[organisme.getXLocatie()][organisme.getYLocatie()] = null;
+        organismen[organisme.getXLocatie()][organisme.getYLocatie()] = null;
     }
 
     public void nieuweDag() {
-        
-        for(Organisme[] organismeArray: organismen){
-            for(Organisme organisme:organismeArray){
-                if(organisme!= null){
+
+        for (Organisme[] organismeArray : organismen) {
+            for (Organisme organisme : organismeArray) {
+                if (organisme != null) {
                     organisme.stap();
                 }
             }
@@ -55,32 +55,34 @@ public class Terrarium {
     }
 
     public void printTerrarium() {
-        
-        for(Organisme[] organismeArray: organismen){
-            for(Organisme organisme:organismeArray){
-                if(organisme!= null){
+
+        for (Organisme[] organismeArray : organismen) {
+            for (Organisme organisme : organismeArray) {
+                if (organisme != null) {
                     System.out.print(" " + organisme + " ");
-                }else{
+                } else {
                     System.out.print(" . ");
                 }
             }
-            System.err.println();
+            System.out.println();
         }
 
     }
-    
-    public boolean verplaatsOrganisme(Organisme organisme, int xVerplaatsing, int yVerplaatsing){
+
+    public boolean verplaatsOrganisme(Organisme organisme, int xVerplaatsing, int yVerplaatsing) {
         int x = organisme.getXLocatie();
         int y = organisme.getYLocatie();
-        
-        
-        if(organismen[x+xVerplaatsing][y+yVerplaatsing] == null){
-            organismen[x+xVerplaatsing][y+yVerplaatsing] = organisme;
-            organismen[x][y]=null;
-            return true;
-        
+        int newX = organisme.getXLocatie() + xVerplaatsing;
+        int newY = organisme.getYLocatie() + yVerplaatsing;
+
+        if (newX < organismen.length && newY < organismen.length && newX >= 0 && newY >= 0 ) {
+            if (organismen[newX][newY] == null) {
+                organismen[newX][newY] = organisme;
+                organismen[x][y] = null;
+                return true;
+            }
         }
-        
+
         return false;
     }
 

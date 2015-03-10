@@ -38,6 +38,7 @@ public abstract class Dier extends Organisme {
         return levensKracht;
     }
 
+    @Override
     public void stap() {
         boolean verplaatst = false;
         
