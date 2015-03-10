@@ -63,6 +63,8 @@ public abstract class Dier extends Organisme {
                     break;
             }
         }
+        
+        setActieOndernomen(true);
 
     }
 

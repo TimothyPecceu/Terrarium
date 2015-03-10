@@ -13,10 +13,20 @@ public abstract class Organisme {
 
     private int xLocatie;
     private int yLocatie;
+    boolean actieOndernomen;
 
     public Organisme(int xLocatie, int yLocatie) {
         this.xLocatie = xLocatie;
         this.yLocatie = yLocatie;
+        actieOndernomen=false;
+    }
+
+    public void setActieOndernomen(boolean actieOndernomen) {
+        this.actieOndernomen = actieOndernomen;
+    }
+
+    public boolean isActieOndernomen() {
+        return actieOndernomen;
     }
 
     public int getXLocatie() {
@@ -40,6 +50,8 @@ public abstract class Organisme {
 
     public abstract void herbivoorActie(Herbivoor herbivoor);
     
-    public void stap(){};
+    public void stap(){}
+    
+    public void interactie(Organisme organisme){}
 
 }

@@ -5,6 +5,8 @@
  */
 package terrarium;
 
+import java.util.Scanner;
+
 /**
  *
  * @author hans
@@ -19,11 +21,26 @@ public class Main {
         Terrarium terrarium = Terrarium.getInstance();
         
         terrarium.addOrganisme(factory.createOrganisme("herbivoor"));
+        terrarium.addOrganisme(factory.createOrganisme("herbivoor"));
+        terrarium.addOrganisme(factory.createOrganisme("carnivoor"));
+        terrarium.addOrganisme(factory.createOrganisme("carnivoor"));
+        terrarium.addOrganisme(factory.createOrganisme("plant"));
+        terrarium.addOrganisme(factory.createOrganisme("plant"));
+        
         terrarium.printTerrarium();
-        terrarium.nieuweDag();
-        terrarium.printTerrarium();
-        terrarium.nieuweDag();
-        terrarium.printTerrarium();
+        
+        System.out.println("Geef 'V' in voor volgende dag, 'S' om te stoppen:");
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
+        
+        while(!input.toUpperCase().equals("S")){
+            if(input.toUpperCase().equals("V")){
+                terrarium.nieuweDag();
+                terrarium.printTerrarium();
+            }
+            System.out.println("Geef 'V' in voor volgende dag, 'S' om te stoppen:");
+            input = scanner.nextLine();
+        }
     }
     
 }
