@@ -22,15 +22,13 @@ public abstract class Dier extends Organisme {
 
     Random random = new Random();
     Richting[] alleRichtingen = Richting.values();
-    
+
     private Actie actie;
 
-    public Dier(Locatie locatie) {
-        super(locatie);
+    public Dier(int x, int y) {
+        super(x, y);
         levensKracht = 0;
     }
-        
-
 
     public void verhoogLevensKracht(int verhoging) {
         levensKracht += verhoging;
@@ -41,25 +39,28 @@ public abstract class Dier extends Organisme {
     }
 
     public void stap() {
+        boolean verplaatst = false;
+        
+        while (!verplaatst) {
 
-        
-        Richting richting = alleRichtingen[random.nextInt(alleRichtingen.length)];
-        
-        switch (richting) {
-            case OMHOOG:
-                getLocatie().omhoog();
-                break;
-            case OMLAAG:
-                getLocatie().omlaag();
-                break;
-            case LINKS:
-                getLocatie().links();
-                break;
-            case RECHTS:
-                getLocatie().rechts();
-                break;
-            default:
-                break;
+            Richting richting = alleRichtingen[random.nextInt(alleRichtingen.length)];
+
+            switch (richting) {
+                case OMHOOG:
+                    verplaatst=Terrarium.getInstance().verplaatsOrganisme(this, -1, 0);
+                    break;
+                case OMLAAG:
+                    verplaatst=Terrarium.getInstance().verplaatsOrganisme(this, +1, 0);
+                    break;
+                case LINKS:
+                    verplaatst=Terrarium.getInstance().verplaatsOrganisme(this, 0, -1);
+                    break;
+                case RECHTS:
+                    verplaatst=Terrarium.getInstance().verplaatsOrganisme(this, 0, +1);
+                    break;
+                default:
+                    break;
+            }
         }
 
     }
@@ -67,8 +68,8 @@ public abstract class Dier extends Organisme {
     public void setActie(Actie actie) {
         this.actie = actie;
     }
-    
-    public void actie(){
+
+    public void actie() {
         actie.voerUit();
     }
 }

@@ -15,7 +15,16 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        OrganismeFactory factory = new OrganismeFactory();
+        Terrarium terrarium = Terrarium.getInstance();
         
+        terrarium.addOrganisme(factory.createOrganisme("herbivoor"));
+        terrarium.printTerrarium();
+        terrarium.nieuweDag();
+        terrarium.printTerrarium();
+        terrarium.nieuweDag();
+        terrarium.printTerrarium();
+        terrarium.nieuweDag();
     }
     
 }

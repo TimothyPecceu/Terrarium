@@ -5,9 +5,6 @@
  */
 package terrarium;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  *
  * @author hans
@@ -15,10 +12,10 @@ import java.util.Map;
 public class Terrarium {
 
     private static Terrarium uniqueInstance;
-    private final Map<Locatie, Organisme> organismen;
+    private final Organisme[][] organismen;
 
     private Terrarium() {
-        organismen = new HashMap<>();
+        organismen = new Organisme[6][6];
 
     }
 
@@ -32,19 +29,59 @@ public class Terrarium {
 
     public void addOrganisme(Organisme organisme) {
 
-        organismen.putIfAbsent(organisme.getLocatie(), organisme);
+        int x = organisme.getXLocatie();
+        int y = organisme.getYLocatie();
+        
+        if(organismen[x][y] == null){
+            organismen[x][y] = organisme;
+        }
 
     }
 
     public void removeOrganisme(Organisme organisme) {
-        
+       organismen[organisme.getXLocatie()][organisme.getYLocatie()] = null;
     }
 
     public void nieuweDag() {
+        
+        for(Organisme[] organismeArray: organismen){
+            for(Organisme organisme:organismeArray){
+                if(organisme!= null){
+                    organisme.stap();
+                }
+            }
+        }
 
     }
 
     public void printTerrarium() {
+        
+        for(Organisme[] organismeArray: organismen){
+            for(Organisme organisme:organismeArray){
+                if(organisme!= null){
+                    System.out.print(" " + organisme + " ");
+                }else{
+                    System.out.print(" . ");
+                }
+            }
+            System.err.println();
+        }
 
     }
+    
+    public boolean verplaatsOrganisme(Organisme organisme, int xVerplaatsing, int yVerplaatsing){
+        int x = organisme.getXLocatie();
+        int y = organisme.getYLocatie();
+        
+        
+        if(organismen[x+xVerplaatsing][y+yVerplaatsing] == null){
+            organismen[x+xVerplaatsing][y+yVerplaatsing] = organisme;
+            organismen[x][y]=null;
+            return true;
+        
+        }
+        
+        return false;
+    }
+
 }

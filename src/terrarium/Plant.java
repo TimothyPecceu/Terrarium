@@ -11,10 +11,10 @@ package terrarium;
  */
 public class Plant extends Organisme{
 
-    public Plant(Locatie locatie) {
-        super(locatie);
-    } 
-
+    public Plant(int xLocatie, int yLocatie) {
+        super(xLocatie, yLocatie);
+    }
+    
     @Override
     public void herbivoorActie(Herbivoor herbivoor) {
         herbivoor.setActie(new HerbivoorEet(herbivoor,this));

@@ -18,11 +18,11 @@ public class OrganismeFactory {
     public Organisme createOrganisme(String organisme){
         switch(organisme){
             case "plant":
-                return new Plant(new Locatie(random.nextInt(6),random.nextInt(6)));
+                return new Plant(random.nextInt(6),random.nextInt(6));
             case "herbivoor":
-                return new Herbivoor(new Locatie(random.nextInt(6),random.nextInt(6)));
+                return new Herbivoor(random.nextInt(6),random.nextInt(6));
             case "carnivoor":
-                return new Carnivoor(new Locatie(random.nextInt(6),random.nextInt(6)));
+                return new Carnivoor(random.nextInt(6),random.nextInt(6));
             default:
                 return null;
         }
